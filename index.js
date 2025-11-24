@@ -9,7 +9,11 @@ import pizzaRoute from "./routes/pizza.route.js";
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://hito-8.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 app.use("/api/auth", authRoute);
 app.use("/api/pizzas", pizzaRoute);
